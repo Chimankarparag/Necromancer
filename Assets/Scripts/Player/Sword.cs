@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class Sword : MonoBehaviour,IWeapon
 {
+    [SerializeField] private WeaponInfo weaponInfo;
     private Transform weaponCollider;
     // [SerializeField]private float swordAttackCD = 0.5f;
     //in AttackCdRoutine replace the number by swordattackCD
@@ -24,6 +25,10 @@ public class Sword : MonoBehaviour,IWeapon
         private void Update() {
         MouseFollowWithOffset();
     }
+    public WeaponInfo GetWeaponInfo() {
+        return weaponInfo;
+    }
+
   
     void Start()
     {
@@ -41,8 +46,7 @@ public class Sword : MonoBehaviour,IWeapon
     }
 
     private IEnumerator AttackCDRoutine(){
-        yield return new WaitForSeconds(0.5f);
-        ActiveWeapon.Instance.ToggleIsAttacking(false);
+        yield return new WaitForSeconds(0.5f); 
     }
         private void DoneAttackingAnimEvent()
     {

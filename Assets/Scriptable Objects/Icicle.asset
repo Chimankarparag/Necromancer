@@ -13,4 +13,6 @@ MonoBehaviour:
   m_Name: Icicle
   m_EditorClassIdentifier: 
   weaponPrefab: {fileID: 682857165241576239, guid: 2e846e78480974599a2be57639c082fd, type: 3}
-  weaponCooldown: 1.2
+  weaponCooldown: 0.7
+  weaponDamage: 1
+  weaponRange: 5

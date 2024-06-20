@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6075762503019903700}
   - component: {fileID: 4389267695116013299}
   - component: {fileID: -6664579709301122076}
+  - component: {fileID: 2869123400504458451}
   m_Layer: 0
   m_Name: crate 2
   m_TagString: Untagged
@@ -169,3 +170,16 @@ MonoBehaviour:
   m_LocalBounds:
     m_Center: {x: -0.007894695, y: -0.28036436, z: 0}
     m_Extent: {x: 0.5766548, y: 0.46691272, z: 0}
+--- !u!114 &2869123400504458451
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1944130509493398933}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ab0d1bb254194901860ae7fe7c5fc1f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SoulPrefab: {fileID: 2418867826873346948, guid: 4eda0af01b52346b3a420a6584a11f45, type: 3}
