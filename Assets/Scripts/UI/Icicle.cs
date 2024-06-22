@@ -31,7 +31,7 @@ public class Icicle : MonoBehaviour, IWeapon
         Vector3 mousePos = Input.mousePosition;
         Vector3 playerScreenPoint = Camera.main.WorldToScreenPoint(PlayerController.Instance.transform.position);
 
-        float angle = Mathf.Atan2(mousePos.y, mousePos.x) * Mathf.Rad2Deg;
+        float angle = (Mathf.Atan2(mousePos.y, mousePos.x) *2*Mathf.Rad2Deg) - 45;
 
         if (mousePos.x < playerScreenPoint.x)
         {
