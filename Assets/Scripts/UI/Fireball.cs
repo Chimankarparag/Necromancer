@@ -24,7 +24,7 @@ public class Fireball : MonoBehaviour, IWeapon
         myAnimator.SetTrigger(ATTACK_HASH);
         GameObject newfiremagic = Instantiate(fireMagicprefab,fireMagicSpawnPoint.position,ActiveWeapon.Instance.transform.rotation);
         newfiremagic.GetComponent<Projectile>().UpdateWeaponInfo(weaponInfo);
-    
+
     }
 
     public WeaponInfo GetWeaponInfo() {

@@ -10,6 +10,7 @@ public class Icicle : MonoBehaviour, IWeapon
     private Animator myAnimator;
     readonly int FIRE_HASH = Animator.StringToHash("Fire");
 
+
     private void Awake(){
         myAnimator = GetComponent<Animator>();
     }
@@ -23,6 +24,7 @@ public class Icicle : MonoBehaviour, IWeapon
         myAnimator.SetTrigger(FIRE_HASH);
         GameObject newice = Instantiate(ice1prefab,ice1spawnpoint.position,ActiveWeapon.Instance.transform.rotation);
         newice.GetComponent<Projectile>().UpdateWeaponInfo(weaponInfo);
+
     }
     private void MouseFollowWithOffset()
     {
