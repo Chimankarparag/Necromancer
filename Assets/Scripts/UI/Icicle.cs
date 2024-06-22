@@ -7,9 +7,9 @@ public class Icicle : MonoBehaviour, IWeapon
     [SerializeField] private WeaponInfo weaponInfo;
     [SerializeField] private GameObject ice1prefab;
     [SerializeField] private Transform ice1spawnpoint;
-
-    readonly int FIRE_HASH = Animator.StringToHash("Fire");
     private Animator myAnimator;
+    readonly int FIRE_HASH = Animator.StringToHash("Fire");
+
     private void Awake(){
         myAnimator = GetComponent<Animator>();
     }

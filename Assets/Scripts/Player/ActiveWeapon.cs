@@ -39,6 +39,7 @@ public class ActiveWeapon : Singleton<ActiveWeapon>
     }
 
     public void WeaponNull() {
+        Debug.Log("me null set kela");
         CurrentActiveWeapon = null;
     }
 

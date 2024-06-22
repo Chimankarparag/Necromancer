@@ -5,13 +5,26 @@ using UnityEngine;
 public class Fireball : MonoBehaviour, IWeapon
 {
     [SerializeField] private WeaponInfo weaponInfo;
+
+    [SerializeField] private GameObject fireMagicprefab;
+    [SerializeField] private Transform fireMagicSpawnPoint;
+
+    private Animator myAnimator;
+    readonly int ATTACK_HASH = Animator.StringToHash("Attack");
+
+    private void Awake() {
+        myAnimator = GetComponent<Animator>();
+    }
     private void Update() {
         MouseFollowWithOffset();
     }
 
 
     public void Attack() {
-        Debug.Log("Staff Attack");
+        myAnimator.SetTrigger(ATTACK_HASH);
+        GameObject newfiremagic = Instantiate(fireMagicprefab,fireMagicSpawnPoint.position,ActiveWeapon.Instance.transform.rotation);
+        newfiremagic.GetComponent<Projectile>().UpdateWeaponInfo(weaponInfo);
+    
     }
 
     public WeaponInfo GetWeaponInfo() {

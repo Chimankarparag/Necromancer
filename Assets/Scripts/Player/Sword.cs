@@ -48,7 +48,7 @@ public class Sword : MonoBehaviour,IWeapon
     private IEnumerator AttackCDRoutine(){
         yield return new WaitForSeconds(0.5f); 
     }
-        private void DoneAttackingAnimEvent()
+    private void DoneAttackingAnimEvent()
     {
         weaponCollider.gameObject.SetActive(false);
     }

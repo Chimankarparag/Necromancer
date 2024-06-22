@@ -47,6 +47,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponInfo: {fileID: 11400000, guid: ac862f182a1ff481dbc1f7e52a54700b, type: 2}
+  fireMagicprefab: {fileID: 2078187686396729012, guid: fcdcfc084d97d4811a37547369da136d, type: 3}
+  fireMagicSpawnPoint: {fileID: 1582504505935728242}
 --- !u!212 &3012852400838872228
 SpriteRenderer:
   m_ObjectHideFlags: 0

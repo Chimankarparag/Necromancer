@@ -26,10 +26,11 @@ public class Projectile : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other) {
         EnemyHealth enemyHealth = other.gameObject.GetComponent<EnemyHealth>();
-        enemyHealth?.TakeDamage(weaponInfo.weaponDamage);
+
         Indestructible indestructible = other.gameObject.GetComponent<Indestructible>();
 
         if (!other.isTrigger && (enemyHealth || indestructible)) {
+            // enemyHealth?.TakeDamage(weaponInfo.weaponDamage); // added this extra line for damage
             Instantiate(particleOnHitPrefabVFX, transform.position, transform.rotation);
             Destroy(gameObject);
         }
