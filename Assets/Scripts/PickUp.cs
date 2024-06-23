@@ -4,6 +4,13 @@ using UnityEngine;
 
 public class PickUp : MonoBehaviour
 {
+     private enum PickUpType
+    {
+        SoulPrefab,
+        ManaGlobe,
+        HealthPrefab,
+    }
+    [SerializeField] private PickUpType pickUpType;
     [SerializeField] private float pickUpDistance = 5f;
     [SerializeField] private float accelartionRate = .2f;
     [SerializeField] private float moveSpeed = 3f;
@@ -40,6 +47,7 @@ public class PickUp : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D other) {
         if (other.gameObject.GetComponent<PlayerController>()) {
+            DetectPickupType();
             Destroy(gameObject);
         }
     }
@@ -62,6 +70,21 @@ public class PickUp : MonoBehaviour
 
             transform.position = Vector2.Lerp(startPoint, endPoint, linearT) + new Vector2(0f, height);
             yield return null;
+        }
+    }
+        private void DetectPickupType() {
+        switch (pickUpType)
+        {
+            case PickUpType.SoulPrefab:
+                SoulManager.Instance.UpdateCurrentSoul();
+                break;
+            case PickUpType.HealthPrefab:
+                PlayerHealth.Instance.HealPlayer();
+                Debug.Log("HealthPrefab");
+                break;
+            case PickUpType.ManaGlobe:
+                Mana.Instance.IncreaseMana();
+                break;
         }
     }
 }

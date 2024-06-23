@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 1056496691740000380}
   - component: {fileID: 3524140451179668761}
   - component: {fileID: 4651820649292140389}
+  - component: {fileID: 5606666303698190134}
   m_Layer: 0
   m_Name: Bigtree
   m_TagString: Untagged
@@ -29,7 +30,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8526042465455818367}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -7.1110287, y: -7.583006, z: 0.019509807}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -198,7 +199,19 @@ MonoBehaviour:
   - {x: 0.63797617, y: -0.38307762, z: 0}
   m_ShapePathHash: -705452083
   m_Mesh: {fileID: 0}
-  m_InstanceId: -122712
+  m_InstanceId: -131396
   m_LocalBounds:
     m_Center: {x: -0.02167821, y: -0.13949156, z: 0}
     m_Extent: {x: 0.6596544, y: 0.24358606, z: 0}
+--- !u!114 &5606666303698190134
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8526042465455818367}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9797ff0c7b7e4451480c0416e587092d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

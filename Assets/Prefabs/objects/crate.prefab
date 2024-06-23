@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6075762503019903700}
   - component: {fileID: 4389267695116013299}
   - component: {fileID: -7493006740586974362}
+  - component: {fileID: 3541417679784841389}
   m_Layer: 0
   m_Name: crate
   m_TagString: Untagged
@@ -161,7 +162,23 @@ MonoBehaviour:
   - {x: 0.168476, y: -0.3624484, z: 1.8233681e-10}
   m_ShapePathHash: 1243937292
   m_Mesh: {fileID: 0}
-  m_InstanceId: 49382
+  m_InstanceId: -1480
   m_LocalBounds:
     m_Center: {x: 0.03125018, y: -0.2951628, z: 0}
     m_Extent: {x: 0.1372258, y: 0.07301689, z: 0}
+--- !u!114 &3541417679784841389
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1944130509493398933}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ab0d1bb254194901860ae7fe7c5fc1f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SoulPrefab: {fileID: 2418867826873346948, guid: 260181a220e4048cd81b1e0448037bf5, type: 3}
+  HealthPrefab: {fileID: 2418867826873346948, guid: 4eda0af01b52346b3a420a6584a11f45, type: 3}
+  ManaGlobe: {fileID: 2418867826873346948, guid: 05c6fdd6ad6db406e911769b7f4d99f7, type: 3}
+  isEnemy: 0

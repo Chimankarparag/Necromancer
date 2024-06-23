@@ -9,7 +9,7 @@ public class Projectile : MonoBehaviour
 
     [SerializeField] private bool isEnemyProjectile = false;
     [SerializeField] private float projectileRange = 10f;
-
+    [SerializeField] private float bulletdamage = 5f;
     private Vector3 startPosition;
 
     private void Start() {
@@ -38,7 +38,7 @@ public class Projectile : MonoBehaviour
 
         if (!other.isTrigger && (enemyHealth || indestructible || player)) {
             if ((player && isEnemyProjectile) || (enemyHealth && !isEnemyProjectile)) {
-                player?.TakeDamage(1, transform);
+                player?.TakeDamage(bulletdamage, transform);
                 Instantiate(particleOnHitPrefabVFX, transform.position, transform.rotation);
                 Destroy(gameObject);
             } else if (!other.isTrigger && indestructible) {

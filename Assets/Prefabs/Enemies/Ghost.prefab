@@ -36,7 +36,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4244575579362050590}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: 0.0012569424, w: 0.9999992}
+  m_LocalRotation: {x: 0, y: 0, z: 0.001256658, w: 0.9999992}
   m_LocalPosition: {x: -32.67, y: 17.7, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -109,6 +109,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SoulPrefab: {fileID: 2418867826873346948, guid: 3ef4db30c6abd4b89b3a7b7fef940347, type: 3}
+  HealthPrefab: {fileID: 2418867826873346948, guid: 4eda0af01b52346b3a420a6584a11f45, type: 3}
+  ManaGlobe: {fileID: 2418867826873346948, guid: 05c6fdd6ad6db406e911769b7f4d99f7, type: 3}
+  isEnemy: 1
 --- !u!70 &6952278439695814384
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -224,9 +227,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   roamChangeDirFloat: 2
   attackRange: 5
-  enemyType: {fileID: 0}
+  enemyType: {fileID: 2554319720295698086}
   attackCooldown: 2
   stopMovingWhileAttacking: 1
+  attackByEnemy: 2
 --- !u!114 &8584170630859295454
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -289,8 +293,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 0.02425, y: 0.11074999, z: 0}
-    m_Extent: {x: 0.53015006, y: 0.71435, z: 0}
+    m_Center: {x: 0.021600008, y: 0.110300004, z: 0}
+    m_Extent: {x: 0.5263, y: 0.7189, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -319,6 +323,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 7665176280066048377, guid: dbdc87d0e1da54cc9a2e4f65caaefea5, type: 3}
+  bulletMoveSpeed: 6
+  burstCount: 1
+  projectilesPerBurst: 1
+  angleSpread: 0
+  startingDistance: 0.1
+  timeBetweenBursts: 0.3
+  restTime: 1
+  stagger: 0
+  oscillate: 0
 --- !u!1 &8783464359338790206
 GameObject:
   m_ObjectHideFlags: 0

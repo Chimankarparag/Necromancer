@@ -10,10 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1647569969283541923}
   - component: {fileID: 2633347017974313192}
+  - component: {fileID: 7531145667422743394}
   - component: {fileID: 6075762503019903700}
-  - component: {fileID: 4389267695116013299}
   - component: {fileID: -1640514163072783245}
-  - component: {fileID: 8699596841598788569}
+  - component: {fileID: 4526096225022780808}
   m_Layer: 0
   m_Name: crate3
   m_TagString: Untagged
@@ -88,6 +88,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &7531145667422743394
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1944130509493398933}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ab0d1bb254194901860ae7fe7c5fc1f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SoulPrefab: {fileID: 2418867826873346948, guid: 260181a220e4048cd81b1e0448037bf5, type: 3}
+  HealthPrefab: {fileID: 2418867826873346948, guid: 4eda0af01b52346b3a420a6584a11f45, type: 3}
+  ManaGlobe: {fileID: 2418867826873346948, guid: 05c6fdd6ad6db406e911769b7f4d99f7, type: 3}
+  isEnemy: 0
 --- !u!70 &6075762503019903700
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -123,19 +139,6 @@ CapsuleCollider2D:
   m_Offset: {x: -0.02304937, y: 0.2622101}
   m_Size: {x: 1.1977339, y: 1.2630752}
   m_Direction: 1
---- !u!114 &4389267695116013299
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1944130509493398933}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0b1b9715e989c461cbb06078ec466026, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  destroyVFX: {fileID: 5884094509951219595, guid: 8bf0252b691154355b673d1bb85881b1, type: 3}
 --- !u!114 &-1640514163072783245
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -163,11 +166,11 @@ MonoBehaviour:
   - {x: 0.2757228, y: -0.7850071, z: 1.8233681e-10}
   m_ShapePathHash: -579742063
   m_Mesh: {fileID: 0}
-  m_InstanceId: 49622
+  m_InstanceId: -2758
   m_LocalBounds:
     m_Center: {x: -0.04119596, y: -0.12942028, z: 0}
     m_Extent: {x: 0.31691876, y: 0.65558684, z: 0}
---- !u!114 &8699596841598788569
+--- !u!114 &4526096225022780808
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -176,7 +179,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1944130509493398933}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7ab0d1bb254194901860ae7fe7c5fc1f, type: 3}
+  m_Script: {fileID: 11500000, guid: 0b1b9715e989c461cbb06078ec466026, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SoulPrefab: {fileID: 2418867826873346948, guid: 260181a220e4048cd81b1e0448037bf5, type: 3}
+  destroyVFX: {fileID: 5884094509951219595, guid: 8bf0252b691154355b673d1bb85881b1, type: 3}

@@ -14,6 +14,8 @@ GameObject:
   - component: {fileID: 2808494999696761365}
   - component: {fileID: 6623728315810904910}
   - component: {fileID: 8175703964746536084}
+  - component: {fileID: 158170878269076316}
+  - component: {fileID: 407248141676921569}
   - component: {fileID: 6036391990375617894}
   - component: {fileID: 2265749905889731641}
   - component: {fileID: 1885576960876940051}
@@ -34,7 +36,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7274801663971751759}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: 0.0012569424, w: 0.9999992}
+  m_LocalRotation: {x: 0, y: 0, z: 0.001256658, w: 0.9999992}
   m_LocalPosition: {x: 1.114, y: -1.868, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -106,6 +108,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SoulPrefab: {fileID: 2418867826873346948, guid: 260181a220e4048cd81b1e0448037bf5, type: 3}
+  HealthPrefab: {fileID: 2418867826873346948, guid: 4eda0af01b52346b3a420a6584a11f45, type: 3}
+  ManaGlobe: {fileID: 2418867826873346948, guid: 05c6fdd6ad6db406e911769b7f4d99f7, type: 3}
+  isEnemy: 1
 --- !u!70 &2808494999696761365
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -168,6 +173,34 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   whiteFlashMat: {fileID: 2100000, guid: 139d26a84bc224489be31cef44d34d9d, type: 2}
   restoreDefaultMatTime: 0.2
+--- !u!114 &158170878269076316
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7274801663971751759}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8897407ad0c8148e5821d9f1f3dcdeae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  knockBackTime: 0.2
+--- !u!114 &407248141676921569
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7274801663971751759}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b197f97ac1a9446da806d0e8dcb1fe3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startingHealth: 3
+  deathVFXPrefab: {fileID: 410621672128287873, guid: 2ca4bfc1e48184b358528332de5816d9, type: 3}
+  knockBackThrust: 15
 --- !u!50 &6036391990375617894
 Rigidbody2D:
   serializedVersion: 4
@@ -208,6 +241,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roamChangeDirFloat: 2
+  attackRange: 5
+  enemyType: {fileID: 0}
+  attackCooldown: 2
+  stopMovingWhileAttacking: 0
+  attackByEnemy: 5
 --- !u!114 &1885576960876940051
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -246,7 +284,7 @@ Animator:
   m_GameObject: {fileID: 7274801663971751759}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: daa0a7f72c90f41e3924f12f7c35eea6, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
