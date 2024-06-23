@@ -10,10 +10,15 @@ public class Fireball : MonoBehaviour, IWeapon
     [SerializeField] private Transform fireMagicSpawnPoint;
 
     private Animator myAnimator;
+    private float manaUsage;
+    private float manaLeft;
     readonly int ATTACK_HASH = Animator.StringToHash("Attack");
 
     private void Awake() {
         myAnimator = GetComponent<Animator>();
+    }
+    private void Start() {
+        manaUsage = GetWeaponInfo().manaUsage;
     }
     private void Update() {
         MouseFollowWithOffset();
@@ -21,12 +26,17 @@ public class Fireball : MonoBehaviour, IWeapon
 
 
     public void Attack() {
-        myAnimator.SetTrigger(ATTACK_HASH);
-        GameObject newfiremagic = Instantiate(fireMagicprefab,fireMagicSpawnPoint.position,ActiveWeapon.Instance.transform.rotation);
-        newfiremagic.GetComponent<Projectile>().UpdateProjectileRange(weaponInfo.weaponRange);
-
+        manaLeft = PlayerMana.Instance.currentMana - manaUsage;
+        if(manaLeft >0 ){
+            PlayerMana.Instance.UseMana(manaUsage);
+            myAnimator.SetTrigger(ATTACK_HASH);
+            GameObject newfiremagic = Instantiate(fireMagicprefab,fireMagicSpawnPoint.position,ActiveWeapon.Instance.transform.rotation);
+            newfiremagic.GetComponent<Projectile>().UpdateProjectileRange(weaponInfo.weaponRange);
+        }
+        else{
+            Debug.Log("Insufficient Mana");
+        }
     }
-
     public WeaponInfo GetWeaponInfo() {
         return weaponInfo;
     }

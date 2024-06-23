@@ -8,11 +8,16 @@ public class Icicle : MonoBehaviour, IWeapon
     [SerializeField] private GameObject ice1prefab;
     [SerializeField] private Transform ice1spawnpoint;
     private Animator myAnimator;
+    private float manaUsage;
+    private float manaLeft;
     readonly int FIRE_HASH = Animator.StringToHash("Fire");
 
 
     private void Awake(){
         myAnimator = GetComponent<Animator>();
+    }
+    private void Start() {
+        manaUsage = GetWeaponInfo().manaUsage;
     }
 
     private void Update() {
@@ -21,10 +26,18 @@ public class Icicle : MonoBehaviour, IWeapon
 
     public void Attack()
     {
-        myAnimator.SetTrigger(FIRE_HASH);
-        GameObject newice = Instantiate(ice1prefab,ice1spawnpoint.position,ActiveWeapon.Instance.transform.rotation);
-        newice.GetComponent<Projectile>().UpdateProjectileRange(weaponInfo.weaponRange);
+        manaLeft = PlayerMana.Instance.currentMana - manaUsage;
+        if(manaLeft >0 ){
+            PlayerMana.Instance.UseMana(manaUsage);
+            myAnimator.SetTrigger(FIRE_HASH);
+            GameObject newice = Instantiate(ice1prefab,ice1spawnpoint.position,ActiveWeapon.Instance.transform.rotation);
+            newice.GetComponent<Projectile>().UpdateProjectileRange(weaponInfo.weaponRange);
 
+        }
+        else{
+            Debug.Log("Insufficient Mana");
+        }
+        
     }
     private void MouseFollowWithOffset()
     {

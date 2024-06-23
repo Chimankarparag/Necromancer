@@ -16,3 +16,4 @@ MonoBehaviour:
   weaponCooldown: 0.7
   weaponDamage: 8
   weaponRange: 8
+  manaUsage: 5

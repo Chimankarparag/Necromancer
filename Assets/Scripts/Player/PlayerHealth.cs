@@ -37,8 +37,11 @@ public class PlayerHealth : Singleton<PlayerHealth>
             TakeDamage(damage, other.transform);
         }
     }
-    public void HealPlayer() {
-        currentHealth += 10;
+    public void HealPlayer(int healAmount) {
+        currentHealth += healAmount;
+        if(currentHealth >=maxHealth){
+            currentHealth = maxHealth;
+        }
         UpdateHealthSlider();
         Debug.Log("Health increased: " + currentHealth);
     }

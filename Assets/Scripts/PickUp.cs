@@ -79,11 +79,11 @@ public class PickUp : MonoBehaviour
                 SoulManager.Instance.UpdateCurrentSoul();
                 break;
             case PickUpType.HealthPrefab:
-                PlayerHealth.Instance.HealPlayer();
+                PlayerHealth.Instance.HealPlayer(10);
                 Debug.Log("HealthPrefab");
                 break;
             case PickUpType.ManaGlobe:
-                Mana.Instance.IncreaseMana();
+                PlayerMana.Instance.IncreaseMana(10);
                 break;
         }
     }
