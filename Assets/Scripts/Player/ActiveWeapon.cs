@@ -39,7 +39,6 @@ public class ActiveWeapon : Singleton<ActiveWeapon>
     }
 
     public void WeaponNull() {
-        Debug.Log("me null set kela");
         CurrentActiveWeapon = null;
     }
 
@@ -65,7 +64,7 @@ public class ActiveWeapon : Singleton<ActiveWeapon>
     }
 
     private void Attack() {
-        if (attackButtonDown && !isAttacking) {
+        if (attackButtonDown && !isAttacking && CurrentActiveWeapon) {
             AttackCooldown();
             (CurrentActiveWeapon as IWeapon).Attack();
         }

@@ -23,7 +23,7 @@ public class Fireball : MonoBehaviour, IWeapon
     public void Attack() {
         myAnimator.SetTrigger(ATTACK_HASH);
         GameObject newfiremagic = Instantiate(fireMagicprefab,fireMagicSpawnPoint.position,ActiveWeapon.Instance.transform.rotation);
-        newfiremagic.GetComponent<Projectile>().UpdateWeaponInfo(weaponInfo);
+        newfiremagic.GetComponent<Projectile>().UpdateProjectileRange(weaponInfo.weaponRange);
 
     }
 

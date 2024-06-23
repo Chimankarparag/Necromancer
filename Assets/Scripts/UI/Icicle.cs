@@ -23,7 +23,7 @@ public class Icicle : MonoBehaviour, IWeapon
     {
         myAnimator.SetTrigger(FIRE_HASH);
         GameObject newice = Instantiate(ice1prefab,ice1spawnpoint.position,ActiveWeapon.Instance.transform.rotation);
-        newice.GetComponent<Projectile>().UpdateWeaponInfo(weaponInfo);
+        newice.GetComponent<Projectile>().UpdateProjectileRange(weaponInfo.weaponRange);
 
     }
     private void MouseFollowWithOffset()

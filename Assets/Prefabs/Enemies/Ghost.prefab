@@ -20,6 +20,7 @@ GameObject:
   - component: {fileID: 8584170630859295454}
   - component: {fileID: 1299269281918244568}
   - component: {fileID: 5711423966623272346}
+  - component: {fileID: 2554319720295698086}
   m_Layer: 0
   m_Name: Ghost
   m_TagString: Untagged
@@ -83,7 +84,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: 0d092ae9e970da34c90cdad4e53d628b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -222,6 +223,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roamChangeDirFloat: 2
+  attackRange: 5
+  enemyType: {fileID: 0}
+  attackCooldown: 2
+  stopMovingWhileAttacking: 1
 --- !u!114 &8584170630859295454
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -267,7 +272,7 @@ MonoBehaviour:
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.227
   m_Color: {r: 0.33882165, g: 0.88168883, b: 0.8867924, a: 1}
-  m_Intensity: 1.5
+  m_Intensity: 1
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
   m_ApplyToSortingLayers: 00000000
@@ -284,8 +289,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 0.023499995, y: 0.11275002, z: 0}
-    m_Extent: {x: 0.52470005, y: 0.71355, z: 0}
+    m_Center: {x: 0.02425, y: 0.11074999, z: 0}
+    m_Extent: {x: 0.53015006, y: 0.71435, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -301,6 +306,19 @@ MonoBehaviour:
   - {x: 0.045935117, y: 0.014785055, z: 0}
   - {x: 0.04502929, y: 0.32820573, z: 0}
   - {x: 0.033222176, y: -0.007384593, z: 0}
+--- !u!114 &2554319720295698086
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4244575579362050590}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2130920f6f06543a7bb5fa4a373cf212, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletPrefab: {fileID: 7665176280066048377, guid: dbdc87d0e1da54cc9a2e4f65caaefea5, type: 3}
 --- !u!1 &8783464359338790206
 GameObject:
   m_ObjectHideFlags: 0
