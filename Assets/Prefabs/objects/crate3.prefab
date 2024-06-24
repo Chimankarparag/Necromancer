@@ -103,7 +103,9 @@ MonoBehaviour:
   SoulPrefab: {fileID: 2418867826873346948, guid: 260181a220e4048cd81b1e0448037bf5, type: 3}
   HealthPrefab: {fileID: 2418867826873346948, guid: 4eda0af01b52346b3a420a6584a11f45, type: 3}
   ManaGlobe: {fileID: 2418867826873346948, guid: 05c6fdd6ad6db406e911769b7f4d99f7, type: 3}
+  SmallMana: {fileID: 2418867826873346948, guid: 95a90e132304840cd8ca0a31a03b4f7c, type: 3}
   isEnemy: 0
+  isRoot: 0
 --- !u!70 &6075762503019903700
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -166,7 +168,7 @@ MonoBehaviour:
   - {x: 0.2757228, y: -0.7850071, z: 1.8233681e-10}
   m_ShapePathHash: -579742063
   m_Mesh: {fileID: 0}
-  m_InstanceId: -2758
+  m_InstanceId: -1440
   m_LocalBounds:
     m_Center: {x: -0.04119596, y: -0.12942028, z: 0}
     m_Extent: {x: 0.31691876, y: 0.65558684, z: 0}

@@ -111,7 +111,9 @@ MonoBehaviour:
   SoulPrefab: {fileID: 2418867826873346948, guid: 3ef4db30c6abd4b89b3a7b7fef940347, type: 3}
   HealthPrefab: {fileID: 2418867826873346948, guid: 4eda0af01b52346b3a420a6584a11f45, type: 3}
   ManaGlobe: {fileID: 2418867826873346948, guid: 05c6fdd6ad6db406e911769b7f4d99f7, type: 3}
+  SmallMana: {fileID: 2418867826873346948, guid: 95a90e132304840cd8ca0a31a03b4f7c, type: 3}
   isEnemy: 1
+  isRoot: 0
 --- !u!70 &6952278439695814384
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -293,8 +295,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 0.021600008, y: 0.110300004, z: 0}
-    m_Extent: {x: 0.5263, y: 0.7189, z: 0}
+    m_Center: {x: 0.023750007, y: -0.114999995, z: 0}
+    m_Extent: {x: 0.52795, y: 0.49119997, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0

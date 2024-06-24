@@ -9,6 +9,7 @@ public class PickUp : MonoBehaviour
         SoulPrefab,
         ManaGlobe,
         HealthPrefab,
+        SmallMana,
     }
     [SerializeField] private PickUpType pickUpType;
     [SerializeField] private float pickUpDistance = 5f;
@@ -82,6 +83,9 @@ public class PickUp : MonoBehaviour
                 PlayerHealth.Instance.HealPlayer(10);
                 break;
             case PickUpType.ManaGlobe:
+                PlayerMana.Instance.IncreaseMana(10);
+                break;
+            case PickUpType.SmallMana:
                 PlayerMana.Instance.IncreaseMana(10);
                 break;
         }

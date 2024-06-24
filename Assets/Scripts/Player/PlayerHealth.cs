@@ -47,9 +47,9 @@ public class PlayerHealth : Singleton<PlayerHealth>
         else if (obstacle){
             float damage = obstacle.obstacleDamage;
             TakeDamage(damage, other.transform);
-            if(EnemyObstacle.Instance.Poisonous){
+            if(obstacle.Poisonous){
                 isPoisoned = true;
-                StartCoroutine(ApplyPoisonEffect());
+                StartCoroutine(ApplyPoisonEffect(obstacle));
             }
         }
     }
@@ -102,16 +102,16 @@ public class PlayerHealth : Singleton<PlayerHealth>
         healthSlider.maxValue = maxHealth;
         healthSlider.value = currentHealth;
     }
-    public IEnumerator ApplyPoisonEffect()
+    public IEnumerator ApplyPoisonEffect(EnemyObstacle obstacle)
     {
 
         float timePassed = 0f;
 
-        while (timePassed < EnemyObstacle.Instance.poisonDuration && !isDead)
+        while (timePassed < obstacle.poisonDuration && !isDead)
         {
-            yield return new WaitForSeconds(EnemyObstacle.Instance.poisonInterval);
-            TakeDamage(EnemyObstacle.Instance.poisonDamage,transform);
-            timePassed += EnemyObstacle.Instance.poisonInterval;
+            yield return new WaitForSeconds(obstacle.poisonInterval);
+            TakeDamage(obstacle.poisonDamage,transform);
+            timePassed += obstacle.poisonInterval;
         }
 
         isPoisoned = false;

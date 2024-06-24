@@ -138,7 +138,9 @@ MonoBehaviour:
   SoulPrefab: {fileID: 2418867826873346948, guid: 260181a220e4048cd81b1e0448037bf5, type: 3}
   HealthPrefab: {fileID: 2418867826873346948, guid: 4eda0af01b52346b3a420a6584a11f45, type: 3}
   ManaGlobe: {fileID: 2418867826873346948, guid: 05c6fdd6ad6db406e911769b7f4d99f7, type: 3}
+  SmallMana: {fileID: 2418867826873346948, guid: 95a90e132304840cd8ca0a31a03b4f7c, type: 3}
   isEnemy: 0
+  isRoot: 0
 --- !u!114 &3426575047784779572
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -165,7 +167,7 @@ MonoBehaviour:
   - {x: 1, y: -1.0000019, z: 0}
   m_ShapePathHash: 0
   m_Mesh: {fileID: 0}
-  m_InstanceId: -635712
+  m_InstanceId: -1824
   m_LocalBounds:
     m_Center: {x: 0, y: -0.0000009536743, z: 0}
     m_Extent: {x: 1, y: 1.000001, z: 0}
