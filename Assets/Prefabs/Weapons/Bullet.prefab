@@ -166,6 +166,7 @@ MonoBehaviour:
   particleOnHitPrefabVFX: {fileID: 410621672128287873, guid: e5e060226f234470689c5d275111fbfc, type: 3}
   isEnemyProjectile: 1
   projectileRange: 10
+  bulletdamage: 5
 --- !u!114 &3230161287860204572
 MonoBehaviour:
   m_ObjectHideFlags: 0
