@@ -1,13 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class PlayerHealth : Singleton<PlayerHealth>
 {
+    public bool isDead{ get; private set; }
     [SerializeField] private int maxHealth = 100;
     [SerializeField] private float knockBackThrustAmount = 10f;
     [SerializeField] private float damageRecoveryTime = 1f;
+
+    public bool isPoisoned = false;
 
     private float currentHealth;
     private Slider healthSlider;
@@ -15,6 +20,8 @@ public class PlayerHealth : Singleton<PlayerHealth>
     private Knockback knockback;
     private Flash flash;
     const string HEALTH_SLIDER_TEXT = "Health Slider";
+    const string TOWN_TEXT = "Scene1";
+    readonly int DEATH_HASH = Animator.StringToHash("Death");
 
     protected override void Awake() {
         base.Awake();
@@ -24,17 +31,26 @@ public class PlayerHealth : Singleton<PlayerHealth>
     }
 
     private void Start() {
+        isDead = false;
         currentHealth = maxHealth;
         UpdateHealthSlider();
     }
 
     private void OnCollisionStay2D(Collision2D other) {
         EnemyAI enemy = other.gameObject.GetComponent<EnemyAI>();
+        EnemyObstacle obstacle = other.gameObject.GetComponent<EnemyObstacle>();
 
-
-        if (enemy) {
+        if (enemy){
             float damage = enemy.attackByEnemy;
             TakeDamage(damage, other.transform);
+        }
+        else if (obstacle){
+            float damage = obstacle.obstacleDamage;
+            TakeDamage(damage, other.transform);
+            if(EnemyObstacle.Instance.Poisonous){
+                isPoisoned = true;
+                StartCoroutine(ApplyPoisonEffect());
+            }
         }
     }
     public void HealPlayer(int healAmount) {
@@ -59,10 +75,19 @@ public class PlayerHealth : Singleton<PlayerHealth>
         CheckIfPlayerDeath();
     }
     private void CheckIfPlayerDeath() {
-        if (currentHealth <= 0) {
+        if (currentHealth <= 0 && !isDead) {
+            isDead = true;
+            Destroy(ActiveWeapon.Instance.gameObject);
             currentHealth = 0;
-            Debug.Log("Player Death");
+            GetComponent<Animator>().SetTrigger(DEATH_HASH);
+            StartCoroutine(DeathLoadSceneRoutine());
         }
+    }
+
+    private IEnumerator DeathLoadSceneRoutine() {
+        yield return new WaitForSeconds(2f);
+        Destroy(gameObject);
+        SceneManager.LoadScene(TOWN_TEXT);
     }
 
     private IEnumerator DamageRecoveryRoutine() {
@@ -76,5 +101,19 @@ public class PlayerHealth : Singleton<PlayerHealth>
 
         healthSlider.maxValue = maxHealth;
         healthSlider.value = currentHealth;
+    }
+    public IEnumerator ApplyPoisonEffect()
+    {
+
+        float timePassed = 0f;
+
+        while (timePassed < EnemyObstacle.Instance.poisonDuration && !isDead)
+        {
+            yield return new WaitForSeconds(EnemyObstacle.Instance.poisonInterval);
+            TakeDamage(EnemyObstacle.Instance.poisonDamage,transform);
+            timePassed += EnemyObstacle.Instance.poisonInterval;
+        }
+
+        isPoisoned = false;
     }
 }

@@ -40,6 +40,8 @@ public class PlayerController : MonoBehaviour//Singleton<PlayerController>
     {
 
         playerControls.Combat.Dash.performed += _ => Dash();
+
+        ActiveInventory.Instance.EquipStartingWeapon();
     }
     private void OnEnable() {
         playerControls.Enable();
@@ -77,7 +79,7 @@ public class PlayerController : MonoBehaviour//Singleton<PlayerController>
     }
 
     private void Move() {
-        if(knockback.GettingKnockedBack){
+        if(knockback.GettingKnockedBack|| PlayerHealth.Instance.isDead){
             return;
         }
         rb.MovePosition(rb.position + movement * (moveSpeed * Time.fixedDeltaTime));

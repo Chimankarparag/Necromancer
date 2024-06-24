@@ -20,7 +20,10 @@ public class Regeneration : MonoBehaviour
 
             if (PlayerHealth.Instance != null)
             {
-                PlayerHealth.Instance.HealPlayer(healthRegenAmount);
+                if(!PlayerHealth.Instance.isPoisoned){
+                    PlayerHealth.Instance.HealPlayer(healthRegenAmount);
+                }
+                 
             }
 
             if (PlayerMana.Instance != null)
