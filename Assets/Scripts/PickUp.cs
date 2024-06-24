@@ -86,7 +86,7 @@ public class PickUp : MonoBehaviour
                 PlayerMana.Instance.IncreaseMana(10);
                 break;
             case PickUpType.SmallMana:
-                PlayerMana.Instance.IncreaseMana(10);
+                PlayerMana.Instance.IncreaseMana(2);
                 break;
         }
     }

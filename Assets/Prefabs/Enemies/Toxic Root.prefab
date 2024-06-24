@@ -215,3 +215,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destroyVFX: {fileID: 5884094509951219595, guid: 8bf0252b691154355b673d1bb85881b1, type: 3}
+  isEnemyObstacle: 1

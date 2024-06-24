@@ -4,7 +4,7 @@ using UnityEngine;
 public class Regeneration : MonoBehaviour
 {
     [SerializeField] private int healthRegenAmount = 1;
-    [SerializeField] private int manaRegenAmount = 1;
+    [SerializeField] private int manaRegenAmount = 2;
     [SerializeField] private float regenInterval = 10f;
 
     private void Start()

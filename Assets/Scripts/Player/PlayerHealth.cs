@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -16,6 +17,7 @@ public class PlayerHealth : Singleton<PlayerHealth>
 
     private float currentHealth;
     private Slider healthSlider;
+    private TextMeshProUGUI healthText;
     private bool canTakeDamage = true;
     private Knockback knockback;
     private Flash flash;
@@ -98,9 +100,13 @@ public class PlayerHealth : Singleton<PlayerHealth>
         if (healthSlider == null) {
             healthSlider = GameObject.Find("Health Slider").GetComponent<Slider>();
         }
+        if(healthText == null){
+            healthText = GameObject.Find("HealthText").GetComponent<TextMeshProUGUI>();
+        }
 
         healthSlider.maxValue = maxHealth;
         healthSlider.value = currentHealth;
+        healthText.text =currentHealth.ToString();
     }
     public IEnumerator ApplyPoisonEffect(EnemyObstacle obstacle)
     {
