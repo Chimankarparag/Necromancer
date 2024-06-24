@@ -80,7 +80,6 @@ public class PickUp : MonoBehaviour
                 break;
             case PickUpType.HealthPrefab:
                 PlayerHealth.Instance.HealPlayer(10);
-                Debug.Log("HealthPrefab");
                 break;
             case PickUpType.ManaGlobe:
                 PlayerMana.Instance.IncreaseMana(10);

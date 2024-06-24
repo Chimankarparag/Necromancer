@@ -10,7 +10,6 @@ public class PickUpSpawnner : MonoBehaviour
 
         if(isEnemy) {
             Instantiate(SoulPrefab, transform.position, Quaternion.identity); 
-            Debug.Log("Instantiating SoulPrefab");
         }else{
             int randomNum = Random.Range(1, 4);
 

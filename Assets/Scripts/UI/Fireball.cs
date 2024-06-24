@@ -42,18 +42,21 @@ public class Fireball : MonoBehaviour, IWeapon
     }
     private void MouseFollowWithOffset()
     {
-        Vector3 mousePos = Input.mousePosition;
-        Vector3 playerScreenPoint = Camera.main.WorldToScreenPoint(PlayerController.Instance.transform.position);
 
-        float angle = (Mathf.Atan2(mousePos.y, mousePos.x) *2*Mathf.Rad2Deg) - 45;
+        Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        mouseWorldPos.z = 0; 
+        Vector3 playerPos = PlayerController.Instance.transform.position;
+        Vector3 direction = mouseWorldPos - playerPos;
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
 
-        if (mousePos.x < playerScreenPoint.x)
+        if (mouseWorldPos.x < playerPos.x)
         {
-            ActiveWeapon.Instance.transform.rotation = Quaternion.Euler(0, -180, angle);
+            ActiveWeapon.Instance.transform.rotation = Quaternion.Euler( 180,0 , -angle);
         }
         else
         {
             ActiveWeapon.Instance.transform.rotation = Quaternion.Euler(0, 0, angle);
         }
     }
+    
 }
