@@ -12,6 +12,9 @@ public class PlayerHealth : Singleton<PlayerHealth>
     [SerializeField] private int maxHealth = 100;
     [SerializeField] private float knockBackThrustAmount = 10f;
     [SerializeField] private float damageRecoveryTime = 1f;
+    [SerializeField] public GameObject DontDestroy;
+
+    
 
     public bool isPoisoned = false;
 
@@ -91,6 +94,7 @@ public class PlayerHealth : Singleton<PlayerHealth>
     private IEnumerator DeathLoadSceneRoutine() {
         yield return new WaitForSeconds(2f);
         Destroy(gameObject);
+        DontDestroy.SetActive(false);
         SceneManager.LoadScene(MENU_TEXT);
     }
 
