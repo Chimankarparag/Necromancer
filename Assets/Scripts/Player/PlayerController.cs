@@ -5,10 +5,10 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Rendering;
 
-public class PlayerController : MonoBehaviour//Singleton<PlayerController>
+public class PlayerController : Singleton<PlayerController>
 {
     public bool ismoving=false;
-    public static PlayerController Instance;
+    // public static PlayerController Instance;
     [SerializeField] private float moveSpeed = 1f; 
     [SerializeField] private float dashSpeed =4f;
     [SerializeField] private TrailRenderer myTrailRenderer;
@@ -26,9 +26,10 @@ public class PlayerController : MonoBehaviour//Singleton<PlayerController>
     private bool isDashing = false;
 
 
-    protected void Awake() {
-        // base.Awake();
-        Instance = this;
+    protected override void Awake() {
+        base.Awake(); 
+        // protected void Awake(){
+        // Instance = this;
         playerControls = new PlayerControls();
         rb = GetComponent<Rigidbody2D>();
         myAnimator = GetComponent<Animator>();

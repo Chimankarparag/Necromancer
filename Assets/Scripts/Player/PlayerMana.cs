@@ -25,7 +25,7 @@ public class PlayerMana : Singleton<PlayerMana>
             currentMana = maxMana;
         }
         UpdateManaSlider();
-        Debug.Log("Mana increased: " + currentMana);
+        // Debug.Log("Mana increased: " + currentMana);
     }
     public void UseMana(float manaUsage){
         currentMana -= manaUsage;

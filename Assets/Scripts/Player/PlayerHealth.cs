@@ -61,7 +61,7 @@ public class PlayerHealth : Singleton<PlayerHealth>
             currentHealth = maxHealth;
         }
         UpdateHealthSlider();
-        Debug.Log("Health increased: " + currentHealth);
+        // Debug.Log("Health increased: " + currentHealth);
     }
     public void TakeDamage(float damageAmount, Transform hitTransform) {
         if (!canTakeDamage) { return; }
