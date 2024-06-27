@@ -14,12 +14,15 @@ GameObject:
   - component: {fileID: 2808494999696761365}
   - component: {fileID: 8175703964746536084}
   - component: {fileID: 158170878269076316}
+  - component: {fileID: 6485472267491546407}
   - component: {fileID: 407248141676921569}
   - component: {fileID: 6036391990375617894}
+  - component: {fileID: 7389806963018531293}
   - component: {fileID: 2265749905889731641}
   - component: {fileID: 1885576960876940051}
   - component: {fileID: 990854790614805717}
   - component: {fileID: 560930822733026211}
+  - component: {fileID: 9190710549358380663}
   m_Layer: 0
   m_Name: Slime
   m_TagString: Untagged
@@ -174,6 +177,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   knockBackTime: 0.2
+--- !u!114 &6485472267491546407
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7274801663971751759}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8897407ad0c8148e5821d9f1f3dcdeae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  knockBackTime: 0.2
 --- !u!114 &407248141676921569
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -216,6 +232,21 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
+--- !u!114 &7389806963018531293
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7274801663971751759}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b197f97ac1a9446da806d0e8dcb1fe3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startingHealth: 3
+  deathVFXPrefab: {fileID: 410621672128287873, guid: 2ca4bfc1e48184b358528332de5816d9, type: 3}
+  knockBackThrust: 15
 --- !u!114 &2265749905889731641
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -229,11 +260,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roamChangeDirFloat: 2
-  attackRange: 5
-  enemyType: {fileID: 0}
+  attackRange: 3
+  enemyType: {fileID: 9190710549358380663}
   attackCooldown: 2
   stopMovingWhileAttacking: 0
   attackByEnemy: 5
+  canAttack: 1
 --- !u!114 &1885576960876940051
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -283,3 +315,15 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &9190710549358380663
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7274801663971751759}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39a1754ae0ffd40a486dc76f3d415026, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

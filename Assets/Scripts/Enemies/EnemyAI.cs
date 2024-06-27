@@ -12,7 +12,7 @@ public class EnemyAI : MonoBehaviour
 
     [SerializeField] public float attackByEnemy;
 
-    private bool canAttack = true;
+    public bool canAttack = true;
 
     private enum State {
         Roaming, 
@@ -56,34 +56,40 @@ public class EnemyAI : MonoBehaviour
         timeRoaming += Time.deltaTime;
 
         enemyPathfinding.MoveTo(roamPosition);
+        if(PlayerController.Instance){
 
-        if (Vector2.Distance(transform.position, PlayerController.Instance.transform.position) < attackRange) {
-            state = State.Attacking;
-        }
+            if (Vector2.Distance(transform.position, PlayerController.Instance.transform.position) < attackRange) {
+                state = State.Attacking;
+            }
 
-        if (timeRoaming > roamChangeDirFloat) {
-            roamPosition = GetRoamingPosition();
+            if (timeRoaming > roamChangeDirFloat) {
+                roamPosition = GetRoamingPosition();
+            }
         }
     }
 
     private void Attacking() {
-        if (Vector2.Distance(transform.position, PlayerController.Instance.transform.position) > attackRange)
-        {
-            state = State.Roaming;
-        }
-
-        if (attackRange != 0 && canAttack) {
-
-            canAttack = false;
-            (enemyType as IEnemy).Attack();
-
-            if (stopMovingWhileAttacking) {
-                enemyPathfinding.StopMoving();
-            } else {
-                enemyPathfinding.MoveTo(roamPosition);
+        if(PlayerController.Instance){
+            
+        
+            if (Vector2.Distance(transform.position, PlayerController.Instance.transform.position) > attackRange)
+            {
+                state = State.Roaming;
             }
 
-            StartCoroutine(AttackCooldownRoutine());
+            if (attackRange != 0 && canAttack) {
+
+                canAttack = false;
+                (enemyType as IEnemy).Attack();
+
+                if (stopMovingWhileAttacking) {
+                    enemyPathfinding.StopMoving();
+                } else {
+                    enemyPathfinding.MoveTo(roamPosition);
+                }
+
+                StartCoroutine(AttackCooldownRoutine());
+            }
         }
     }
 
@@ -96,4 +102,6 @@ public class EnemyAI : MonoBehaviour
         timeRoaming = 0f;
         return new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f)).normalized;
     }
+
+    
 }
