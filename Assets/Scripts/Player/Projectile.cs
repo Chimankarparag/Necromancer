@@ -11,6 +11,8 @@ public class Projectile : MonoBehaviour
     [SerializeField] private float projectileRange = 10f;
     [SerializeField] private float bulletdamage = 5f;
     private Vector3 startPosition;
+    private Animator myAnimator;
+    readonly int FREEZE = Animator.StringToHash("Freeze");
 
     private void Start() {
         startPosition = transform.position;
@@ -39,7 +41,11 @@ public class Projectile : MonoBehaviour
         if (!other.isTrigger && (enemyHealth || indestructible || player)) {
             if ((player && isEnemyProjectile) || (enemyHealth && !isEnemyProjectile)) {
                 player?.TakeDamage(bulletdamage, transform);
-                Instantiate(particleOnHitPrefabVFX, transform.position, transform.rotation);
+                // // if(myAnimator){
+                //     myAnimator.SetTrigger(FREEZE);
+                // // }
+                // // else
+                {Instantiate(particleOnHitPrefabVFX, transform.position, transform.rotation);}
                 Destroy(gameObject);
             } else if (!other.isTrigger && indestructible) {
                 Instantiate(particleOnHitPrefabVFX, transform.position, transform.rotation);
