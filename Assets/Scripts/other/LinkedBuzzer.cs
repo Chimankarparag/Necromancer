@@ -12,11 +12,11 @@ public class LinkedBuzzer : MonoBehaviour
 
     public bool buzzerActive; // New public variable to store buzzer state
     private FinalGate finalGate;
-
-    public Action<LinkedBuzzer> OnBuzzerActivated { get; internal set; }
+    // public Action<LinkedBuzzer> OnBuzzerActivated { get; internal set; }
 
     private void Start()
     {
+        finalGate = objectToDestroy.GetComponent<FinalGate>();
         // Ensure the light is off at the start
         if (light2D != null)
         {
@@ -35,7 +35,7 @@ public class LinkedBuzzer : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.GetComponent<DamageSource>())
+        if ((other.gameObject.GetComponent<DamageSource>())&&(!buzzerActive))
         {
             if (light2D != null)
             {
@@ -49,10 +49,9 @@ public class LinkedBuzzer : MonoBehaviour
             buzzerActive = true;
             
             Debug.Log("BuzzerActive");
-            if (finalGate != null)
-            {
-                finalGate.activeBuzzerCount++; // This might cause issues with concurrency
-            }
+            finalGate.activeBuzzerCount++; 
+            Debug.Log(finalGate.activeBuzzerCount);
+            
         }
     }
  

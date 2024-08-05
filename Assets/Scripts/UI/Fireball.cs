@@ -27,7 +27,7 @@ public class Fireball : MonoBehaviour, IWeapon
 
     public void Attack() {
         manaLeft = PlayerMana.Instance.currentMana - manaUsage;
-        if(manaLeft >0 ){
+        if(manaLeft >=0 ){
             PlayerMana.Instance.UseMana(manaUsage);
             myAnimator.SetTrigger(ATTACK_HASH);
             GameObject newfiremagic = Instantiate(fireMagicprefab,fireMagicSpawnPoint.position,ActiveWeapon.Instance.transform.rotation);

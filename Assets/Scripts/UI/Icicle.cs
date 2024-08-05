@@ -27,7 +27,7 @@ public class Icicle : MonoBehaviour, IWeapon
     public void Attack()
     {
         manaLeft = PlayerMana.Instance.currentMana - manaUsage;
-        if(manaLeft >0 ){
+        if(manaLeft >=0 ){
             PlayerMana.Instance.UseMana(manaUsage);
             myAnimator.SetTrigger(FIRE_HASH);
             GameObject newice = Instantiate(ice1prefab,ice1spawnpoint.position,ActiveWeapon.Instance.transform.rotation);

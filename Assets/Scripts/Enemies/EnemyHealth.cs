@@ -10,6 +10,8 @@ public class EnemyHealth : MonoBehaviour
     [SerializeField] private float knockBackThrust= 15f;
 
     [SerializeField] public bool isSpecialMonster = false;
+    [SerializeField] public bool isBossMonster = false;
+
     readonly int DEATH_HASH = Animator.StringToHash("Death");
     private int currentHealth;
     private EnemyAI enemyAI;
@@ -18,6 +20,8 @@ public class EnemyHealth : MonoBehaviour
     private Animator myanimator;
     public bool isDead =false;
     private EnemyActivate enemyActivate;
+
+    public event Action OnDeath;
    
 
     private void Awake(){
@@ -30,6 +34,7 @@ public class EnemyHealth : MonoBehaviour
     private void Start(){
         currentHealth = startingHealth;
     }
+    
     public void TakeDamage( int damage){
         currentHealth-= damage;
         Debug.Log("Enemy Health: " + currentHealth);
@@ -47,10 +52,13 @@ public class EnemyHealth : MonoBehaviour
         {
             if (currentHealth <= 0)
             {
+                
+                if(!isDead) GetComponent<PickUpSpawnner>().DropItems(); 
                 isDead =true;
                 enemyActivate.FreezeEnemy();
+                 OnDeath?.Invoke();
 
-                GetComponent<PickUpSpawnner>().DropItems(); 
+                // GetComponent<PickUpSpawnner>().DropItems(); 
                 if (isSpecialMonster ==true)
                 {
                     // Debug.Log("special moster killed");
@@ -66,7 +74,8 @@ public class EnemyHealth : MonoBehaviour
 
         private IEnumerator WaitForDeathAnimation()
         {
-            yield return new WaitForSeconds(myanimator.GetCurrentAnimatorStateInfo(0).length +2f);
+            yield return new WaitForSeconds(myanimator.GetCurrentAnimatorStateInfo(0).length);
+            // can add some time after death animation after ...length +
             Destroy(gameObject);
         }
 

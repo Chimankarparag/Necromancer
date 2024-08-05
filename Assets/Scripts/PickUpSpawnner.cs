@@ -8,6 +8,8 @@ public class PickUpSpawnner : MonoBehaviour
     [SerializeField] private bool isEnemy = false;
 
     [SerializeField] private  bool isRoot = false;
+
+    [SerializeField] private  bool isManaEnemy = false;
     public void DropItems() {
 
         if(isEnemy) {
@@ -15,7 +17,11 @@ public class PickUpSpawnner : MonoBehaviour
         }else if(isRoot) {
             Instantiate(SmallMana, transform.position, Quaternion.identity); 
             //can make it a chance event by giving random number but since the game has about half of them as not killable so kept as it is
-        }else{
+        }
+        else if(isManaEnemy){
+            Instantiate(ManaGlobe, transform.position, Quaternion.identity); 
+        }
+        else{
             int randomNum = Random.Range(1, 4);
 
             if (randomNum == 1) {

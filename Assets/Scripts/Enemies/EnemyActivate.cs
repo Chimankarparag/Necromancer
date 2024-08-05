@@ -6,12 +6,15 @@ public class EnemyActivate : MonoBehaviour
 {
     [SerializeField] private float activationDistance = 8.5f; 
     [SerializeField] private Transform enemyTransform; 
+    [SerializeField] private bool isSummoner;
 
-    private bool isActivated = false;
+    public bool isActivated = false;
     private Rigidbody2D enemyRigidbody;
     private EnemyAI enemyAI;
     private Transform playerTransform;
     private EnemyHealth enemyHealth;
+
+    private Summoner summoner;
 
 
 
@@ -20,8 +23,10 @@ public class EnemyActivate : MonoBehaviour
         enemyRigidbody = GetComponent<Rigidbody2D>();
         enemyAI = GetComponent<EnemyAI>();
         enemyHealth = GetComponent<EnemyHealth>();
+        summoner = GetComponent<Summoner>();
 
         playerTransform = PlayerController.Instance.transform;
+
 
         FreezeEnemy();
     }
@@ -38,10 +43,14 @@ public class EnemyActivate : MonoBehaviour
         }
     }
 
-    private void ActivateEnemy()
+    public void ActivateEnemy()
     {
         isActivated = true;
         UnfreezeEnemy();
+        if(isSummoner){
+            summoner.StartSpawn();
+        }
+       
     }
 
     public void FreezeEnemy()
@@ -56,7 +65,7 @@ public class EnemyActivate : MonoBehaviour
         }
     }
 
-    private void UnfreezeEnemy()
+    public void UnfreezeEnemy()
     {
         if (enemyRigidbody != null && enemyHealth.isDead==false) 
         {

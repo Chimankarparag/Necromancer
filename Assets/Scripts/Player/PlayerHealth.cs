@@ -21,6 +21,7 @@ public class PlayerHealth : Singleton<PlayerHealth>
     private float currentHealth;
     private Slider healthSlider;
     private TextMeshProUGUI healthText;
+    private DeathUIManager deathUI;
     private bool canTakeDamage = true;
     private Knockback knockback;
     private Flash flash;
@@ -34,12 +35,14 @@ public class PlayerHealth : Singleton<PlayerHealth>
 
         flash = GetComponent<Flash>();
         knockback = GetComponent<Knockback>();
+        deathUI = GameObject.Find("DeathUIManager").GetComponent<DeathUIManager>();
     }
 
     private void Start() {
         isDead = false;
         currentHealth = maxHealth;
         UpdateHealthSlider();
+        DontDestroy.SetActive(true);
     }
 
     private void OnCollisionStay2D(Collision2D other) {
@@ -70,7 +73,13 @@ public class PlayerHealth : Singleton<PlayerHealth>
     public void TakeDamage(float damageAmount, Transform hitTransform) {
         if (!canTakeDamage) { return; }
 
-        ScreenShakeManager.Instance.ShakeScreen();
+        // ScreenShakeManager.Instance.ShakeScreen();
+        if(isPoisoned){
+            MultipleScreenShake.Instance.ShakeScreenSignal2();
+        }else{
+            MultipleScreenShake.Instance.ShakeScreenSignal1();
+        }
+        
         knockback.GetKnockedBack(hitTransform, knockBackThrustAmount);
         StartCoroutine(flash.FlashRoutine());
         canTakeDamage = false;
@@ -92,10 +101,13 @@ public class PlayerHealth : Singleton<PlayerHealth>
     }
 
     private IEnumerator DeathLoadSceneRoutine() {
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(3f);
         Destroy(gameObject);
-        DontDestroy.SetActive(false);
-        SceneManager.LoadScene(MENU_TEXT);
+        Time.timeScale = 0f;
+        deathUI.GotKilled();
+
+        // DontDestroy.SetActive(false);
+        // SceneManager.LoadScene(MENU_TEXT);
     }
 
     private IEnumerator DamageRecoveryRoutine() {

@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 1299269281918244568}
   - component: {fileID: 5711423966623272346}
   - component: {fileID: 2554319720295698086}
+  - component: {fileID: 4519085374793947799}
   m_Layer: 0
   m_Name: Ghost
   m_TagString: Untagged
@@ -38,7 +39,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0.001256658, w: 0.9999992}
   m_LocalPosition: {x: -32.67, y: 17.7, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2038956503449521517}
@@ -233,6 +234,11 @@ MonoBehaviour:
   attackCooldown: 2
   stopMovingWhileAttacking: 1
   attackByEnemy: 2
+  canAttack: 1
+  approachDistance: 10
+  runAwayDistance: 5
+  moveSpeed: 2
+  runAwaySpeed: 4
 --- !u!114 &8584170630859295454
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -245,9 +251,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b197f97ac1a9446da806d0e8dcb1fe3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingHealth: 4
+  startingHealth: 20
   deathVFXPrefab: {fileID: 410621672128287873, guid: e5e060226f234470689c5d275111fbfc, type: 3}
   knockBackThrust: 15
+  isSpecialMonster: 0
+  isBossMonster: 0
+  isDead: 0
 --- !u!114 &1299269281918244568
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -295,8 +304,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 0.023750007, y: -0.114999995, z: 0}
-    m_Extent: {x: 0.52795, y: 0.49119997, z: 0}
+    m_Center: {x: 0.024100006, y: 0.108449996, z: 0}
+    m_Extent: {x: 0.531, y: 0.72115, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -326,14 +335,30 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 7665176280066048377, guid: dbdc87d0e1da54cc9a2e4f65caaefea5, type: 3}
   bulletMoveSpeed: 6
-  burstCount: 1
-  projectilesPerBurst: 1
-  angleSpread: 0
-  startingDistance: 0.1
-  timeBetweenBursts: 0.3
-  restTime: 1
-  stagger: 0
-  oscillate: 0
+  burstCount: 3
+  projectilesPerBurst: 5
+  angleSpread: 120
+  startingDistance: 0.3
+  timeBetweenBursts: 1.2
+  restTime: 0.1
+  stagger: 1
+  oscillate: 1
+--- !u!114 &4519085374793947799
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4244575579362050590}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3233746d8738d4fcabf0938f75d861de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  activationDistance: 8.5
+  enemyTransform: {fileID: 6478881317781869505}
+  isSummoner: 0
+  isActivated: 0
 --- !u!1 &8783464359338790206
 GameObject:
   m_ObjectHideFlags: 0

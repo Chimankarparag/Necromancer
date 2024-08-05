@@ -17,12 +17,11 @@ GameObject:
   - component: {fileID: 6485472267491546407}
   - component: {fileID: 407248141676921569}
   - component: {fileID: 6036391990375617894}
-  - component: {fileID: 7389806963018531293}
   - component: {fileID: 2265749905889731641}
-  - component: {fileID: 1885576960876940051}
   - component: {fileID: 990854790614805717}
   - component: {fileID: 560930822733026211}
   - component: {fileID: 9190710549358380663}
+  - component: {fileID: 3296081419421518626}
   m_Layer: 0
   m_Name: Slime
   m_TagString: Untagged
@@ -205,6 +204,8 @@ MonoBehaviour:
   startingHealth: 3
   deathVFXPrefab: {fileID: 410621672128287873, guid: 2ca4bfc1e48184b358528332de5816d9, type: 3}
   knockBackThrust: 15
+  isSpecialMonster: 0
+  isDead: 0
 --- !u!50 &6036391990375617894
 Rigidbody2D:
   serializedVersion: 4
@@ -232,21 +233,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!114 &7389806963018531293
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7274801663971751759}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4b197f97ac1a9446da806d0e8dcb1fe3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  startingHealth: 3
-  deathVFXPrefab: {fileID: 410621672128287873, guid: 2ca4bfc1e48184b358528332de5816d9, type: 3}
-  knockBackThrust: 15
 --- !u!114 &2265749905889731641
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -266,21 +252,6 @@ MonoBehaviour:
   stopMovingWhileAttacking: 0
   attackByEnemy: 5
   canAttack: 1
---- !u!114 &1885576960876940051
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7274801663971751759}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4b197f97ac1a9446da806d0e8dcb1fe3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  startingHealth: 3
-  deathVFXPrefab: {fileID: 410621672128287873, guid: 2ca4bfc1e48184b358528332de5816d9, type: 3}
-  knockBackThrust: 15
 --- !u!114 &990854790614805717
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -327,3 +298,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39a1754ae0ffd40a486dc76f3d415026, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &3296081419421518626
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7274801663971751759}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3233746d8738d4fcabf0938f75d861de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  activationDistance: 8.5
+  enemyTransform: {fileID: 1357904681379305086}
