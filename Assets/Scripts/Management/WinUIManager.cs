@@ -7,6 +7,7 @@ public class WinUIManager : MonoBehaviour
     public GameObject WinUI;
     public static bool isActivated = false;
     const string MENU_TEXT = "MainMenu";
+    [SerializeField] public GameObject player;
 
     void Start(){
         WinUI=GameObject.Find("WinUI");
@@ -32,5 +33,14 @@ public class WinUIManager : MonoBehaviour
     public void QuitGame()
     {
         Application.Quit();
+    }
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            WinUI.SetActive(true);
+            Time.timeScale = 0f;
+            Destroy(player);
+        }
     }
 }
