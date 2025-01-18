@@ -1,32 +1,44 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.InputSystem;
 
 public class PauseManager : MonoBehaviour
 {
     public GameObject pauseMenuUI;
+    private PlayerControls playerControls;
     public static bool isPaused = false;
     const string MENU_TEXT = "MainMenu";
 
-    void Start(){
-        pauseMenuUI=GameObject.Find("PauseMenu");
+    private void Awake()
+    {
+        // Initialize PlayerControls and subscribe to the Pause action
+        playerControls = new PlayerControls();
+        playerControls.Pause.Pause.performed += OnPause; // Link action to handler
+    }
+
+    private void OnEnable()
+    {
+        // Enable the Input Action Map
+        playerControls.Pause.Enable();
+    }
+
+    private void OnDisable()
+    {
+        // Disable the Input Action Map
+        playerControls.Pause.Disable();
+    }
+
+    private void Start()
+    {
+        pauseMenuUI = GameObject.Find("PauseMenu");
         pauseMenuUI.SetActive(false);
     }
 
-    void Update()
+    private void OnPause(InputAction.CallbackContext context)
     {
-        // Check if the player presses the pause button (Escape key)
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            if (isPaused)
-            {
-                Resume();
-            }
-            else
-            {
-                Pause();
-            }
-        }
+            Pause();
+        
     }
 
     public void Resume()
@@ -36,7 +48,7 @@ public class PauseManager : MonoBehaviour
         isPaused = false;
     }
 
-    void Pause()
+    public void Pause()
     {
         pauseMenuUI.SetActive(true); // Show pause menu
         Time.timeScale = 0f; // Pause game time
@@ -46,13 +58,11 @@ public class PauseManager : MonoBehaviour
     public void MainMenu()
     {
         Time.timeScale = 1f;
-
-        SceneManager.LoadScene(MENU_TEXT);
-        // Make sure to use UnityEngine.SceneManagement if using SceneManager
+        SceneManager.LoadScene(MENU_TEXT); // Load main menu
     }
 
     public void QuitGame()
     {
-        Application.Quit();
+        Application.Quit(); // Quit the application
     }
 }

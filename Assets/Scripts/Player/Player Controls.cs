@@ -39,7 +39,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             ],
             ""bindings"": [
                 {
-                    ""name"": ""2D Vector"",
+                    ""name"": ""wsad"",
                     ""id"": ""9ef1c1cf-a3c4-4200-8859-5558bd393026"",
                     ""path"": ""2DVector"",
                     ""interactions"": """",
@@ -92,6 +92,17 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""7b942257-89b3-41a3-ba52-f59aedbd837e"",
+                    ""path"": ""<Gamepad>/leftStick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -135,6 +146,17 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""id"": ""ff79a5e7-b4b0-40ed-94c2-abd2624425d7"",
                     ""path"": ""<Keyboard>/space"",
                     ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Dash"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a6bb2b7d-7b74-4dc7-9113-0f0c37fc8ae4"",
+                    ""path"": ""<Touchscreen>/touch*/Press"",
+                    ""interactions"": ""MultiTap(tapCount=3)"",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Dash"",
@@ -221,7 +243,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             ""actions"": [
                 {
                     ""name"": ""Pause"",
-                    ""type"": ""Button"",
+                    ""type"": ""PassThrough"",
                     ""id"": ""57bcfe83-0197-4d5f-b685-0a4ca02708f5"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
@@ -234,6 +256,17 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""name"": """",
                     ""id"": ""3fab4e6d-11d9-4fe4-8453-53d5292be7bf"",
                     ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c5e59b2f-2da7-469e-85ee-b996e135c854"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",

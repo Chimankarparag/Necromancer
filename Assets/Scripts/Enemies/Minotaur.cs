@@ -57,14 +57,15 @@ public class Minotaur : MonoBehaviour, IEnemy
             if (PlayerController.Instance.transform.position.x < transform.position.x && facingRight)
             {
                 facingRight = false;
-                // scale.x *= -1;
-                weaponColliderLocalPosition.x *= -1;
+                // spriteRenderer.flipX = false;
+                scale.x *= -1;
             }
             else if (PlayerController.Instance.transform.position.x > transform.position.x && !facingRight)
             {
                 facingRight = true;
-                // scale.x *= -1;
-                weaponColliderLocalPosition.x *= -1;
+                // spriteRenderer.flipX = false;
+                scale.x *= -1;
+
             }
 
             transform.localScale = scale;

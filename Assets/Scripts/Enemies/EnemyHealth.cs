@@ -56,7 +56,7 @@ public class EnemyHealth : MonoBehaviour
                 if(!isDead) GetComponent<PickUpSpawnner>().DropItems(); 
                 isDead =true;
                 enemyActivate.FreezeEnemy();
-                 OnDeath?.Invoke();
+                OnDeath?.Invoke();
 
                 // GetComponent<PickUpSpawnner>().DropItems(); 
                 if (isSpecialMonster ==true)

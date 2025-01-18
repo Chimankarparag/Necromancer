@@ -5,6 +5,8 @@ using UnityEngine;
 public class EnemyPathfinding : MonoBehaviour
 {
     [SerializeField] public float moveSpeed = 2f;
+    [SerializeField] public bool isMinotaur = false;
+
 
     private Rigidbody2D rb;
     private Vector2 moveDir;
@@ -21,12 +23,15 @@ public class EnemyPathfinding : MonoBehaviour
     private void FixedUpdate() {
         if(knockback.GettingKnockedBack){ return;}
         rb.MovePosition(rb.position + moveDir * (moveSpeed * Time.fixedDeltaTime));
-
-        if(moveDir.x<0){
+        if(!isMinotaur){
+            if(moveDir.x<0){
             spriteRenderer.flipX = true;
-        } else {
+            } else {
             spriteRenderer.flipX = false;
+            }
+
         }
+        
     }
 
     public void MoveTo(Vector2 targetPosition) {
