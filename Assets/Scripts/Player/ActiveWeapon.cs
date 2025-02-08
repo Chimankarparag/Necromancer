@@ -29,7 +29,11 @@ public class ActiveWeapon : Singleton<ActiveWeapon>
     }
 
     private void Update() {
+    if (!Application.isMobilePlatform)
+    {
+        // Use PC controls
         Attack();
+    }
     }
     public void NewWeapon(MonoBehaviour newWeapon) {
         CurrentActiveWeapon = newWeapon;

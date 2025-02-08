@@ -50,6 +50,9 @@ MonoBehaviour:
   weaponInfo: {fileID: 11400000, guid: f4913c5fac2f84d1c85a16d3cf3d6ab3, type: 2}
   ice1prefab: {fileID: 7413688484943151778, guid: ab4d889e5184a48079c7816e66afbb70, type: 3}
   ice1spawnpoint: {fileID: 8106949553405530764}
+  attackController: {fileID: 0}
+  joystickKnob: {fileID: 0}
+  joystickBackground: {fileID: 0}
 --- !u!212 &6533024339213907437
 SpriteRenderer:
   m_ObjectHideFlags: 0
